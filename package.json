@@ -1,25 +1,42 @@
 {
-  "name": "ts-vite-starter",
-  "private": true,
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "format": "yarn run prettier --write . && yarn run eslint src --fix",
-    "test": "jest --runInBand"
-  },
-  "devDependencies": {
-    "@types/jest": "^28.1.1",
-    "@typescript-eslint/eslint-plugin": "^5.28.0",
-    "@typescript-eslint/parser": "^5.28.0",
-    "eslint": "^8.17.0",
-    "eslint-config-prettier": "^8.5.0",
-    "jest": "^28.1.1",
-    "prettier": "2.6.2",
-    "ts-jest": "^28.0.4",
-    "ts-node": "^10.8.1",
-    "typescript": "4.5.4",
-    "vite": "2.9.9"
-  }
+	"name": "ts-vite-starter",
+	"private": true,
+	"version": "1.0.0",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"format": "yarn run prettier --write . && yarn run eslint src --fix",
+		"test": "jest --runInBand",
+		"prepare": "husky install && husky add .husky/pre-commit 'npx lint-staged' && git add .husky/pre-commit"
+	},
+	"lint-staged": {
+		"**/*.{js,jsx,ts,tsx}": [
+			"yarn run format"
+		]
+	},
+	"lint-prepush": {
+		"verbose": true,
+		"tasks": {
+			"**/*.{js,jsx,ts,tsx}": [
+				"yarn run test"
+			]
+		}
+	},
+	"devDependencies": {
+		"@types/jest": "^28.1.1",
+		"@typescript-eslint/eslint-plugin": "^5.28.0",
+		"@typescript-eslint/parser": "^5.28.0",
+		"eslint": "^8.17.0",
+		"eslint-config-prettier": "^8.5.0",
+		"husky": "^8.0.1",
+		"jest": "^28.1.1",
+		"lint-prepush": "^2.2.1",
+		"lint-staged": "^13.0.1",
+		"prettier": "2.6.2",
+		"ts-jest": "^28.0.4",
+		"ts-node": "^10.8.1",
+		"typescript": "4.5.4",
+		"vite": "2.9.9"
+	}
 }

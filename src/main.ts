@@ -1,8 +1,8 @@
-import "./style.css";
-import {sum} from "./sum";
-import {Status} from "./status";
+import './style.css';
+import { sum } from './sum';
+import { Status } from './status';
 
-const app = document.querySelector<HTMLDivElement>("#app")!;
+const app = document.querySelector<HTMLDivElement>('#app')!;
 
 app.innerHTML = `<h1>Hello World!</h1>`;
 
