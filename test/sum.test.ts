@@ -1,7 +1,7 @@
-import { calculator } from "../src/calculator";
+import {sum} from "../src/sum";
 
 describe("add", () => {
-    it("should calculator of 1 and 2 equals to 3", () => {
-        expect(calculator(1, 2)).toEqual(3);
-    });
+  it("should calculator of 1 and 2 equals to 3", () => {
+    expect(sum(1, 2)).toEqual(3);
+  });
 });
